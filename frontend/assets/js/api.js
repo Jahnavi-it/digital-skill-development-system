@@ -1,6 +1,6 @@
 // Change this if your Flask backend runs on a different host/port.
-const API_BASE = "https://digital-skill-development-system.onrender.com/api";
-const Auth = {
+const API_BASE = "https://digital-skill-development-system-production.up.railway.app/api";
+  const Auth = {
   getToken() { return localStorage.getItem("dsds_token"); },
   setToken(token) { localStorage.setItem("dsds_token", token); },
   getUser() {
