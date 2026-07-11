@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assessment · Digital Skill Development System</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .question-card { margin-bottom: 16px; }
+  .option-row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; margin-top: 8px; border: 1px solid rgba(255,255,255,0.08); cursor: pointer; }
+  .option-row:hover { border-color: var(--accent); }
+  .option-row input { accent-color: var(--accent); }
+  .option-row.correct { border-color: var(--progress); background: rgba(76,217,160,0.08); }
+  .option-row.incorrect { border-color: var(--danger); background: rgba(255,107,107,0.08); }
+  .result-banner { padding: 20px; border-radius: var(--radius); margin-bottom: 24px; font-family: 'Sora'; }
+  .result-banner.pass { background: rgba(76,217,160,0.12); border: 1px solid var(--progress); }
+  .result-banner.fail { background: rgba(255,107,107,0.12); border: 1px solid var(--danger); }
+</style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12142B">
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="brand">🪜 Digital Skill Development System</a>
+  <nav>
+    <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+  </nav>
+</header>
+
+<section class="section container" style="max-width:720px;" id="quiz-content">
+  <div class="empty-state">Loading assessment…</div>
+</section>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/assessment.js"></script>
+<script src="assets/js/voice-assistant.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/pwa.js"></script>
+</body>
+</html>

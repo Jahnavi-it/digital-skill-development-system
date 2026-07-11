@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Classes · Digital Skill Development System</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12142B">
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">🪜 DSDS</div>
+    <nav>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="courses.html">📚 Courses</a>
+      <a href="leaderboard.html">🏆 Leaderboard</a>
+      <a href="resume-builder.html">📄 Resume Builder</a>
+      <a href="mock-interview.html">🎤 Mock Interview</a>
+      <a href="compiler.html">💻 Coding Compiler</a>
+      <a href="internships.html">🧭 Internships</a>
+      <a href="forum.html">💬 Forum</a>
+      <a href="chat.html">📨 Chat</a>
+      <a href="notifications.html">🔔 Notifications</a>
+      <a href="live-classes.html" class="active">🎥 Live Classes</a>
+    </nav>
+    <a href="#" class="btn btn-outline btn-block logout" id="logout-btn">Log out</a>
+  </aside>
+
+  <main class="main">
+    <div class="topline">
+      <div>
+        <h2>Live Classes</h2>
+        <p class="sub" style="color:var(--muted); margin:0;">Join a scheduled session, or host one if you're a mentor.</p>
+      </div>
+      <button class="btn btn-primary" id="schedule-btn" style="display:none;">+ Schedule a class</button>
+    </div>
+
+    <div class="grid grid-3" id="live-classes-grid">
+      <div class="empty-state">Loading…</div>
+    </div>
+  </main>
+</div>
+
+<!-- Schedule modal (mentors only) -->
+<div id="schedule-modal" class="modal-overlay" style="display:none;">
+  <div class="card" style="max-width:440px; margin:60px auto;">
+    <h3 style="margin-top:0;">Schedule a live class</h3>
+    <form id="schedule-form">
+      <div class="field">
+        <label>Course</label>
+        <select id="sc-course" required></select>
+      </div>
+      <div class="field">
+        <label>Title</label>
+        <input type="text" id="sc-title" placeholder="e.g. Week 3 doubt-clearing session" required>
+      </div>
+      <div class="field">
+        <label>Date &amp; time</label>
+        <input type="datetime-local" id="sc-datetime" required>
+      </div>
+      <div class="form-msg" id="schedule-msg"></div>
+      <div class="actions">
+        <button type="button" class="btn btn-outline" id="schedule-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary">Schedule</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/live-classes.js"></script>
+<script src="assets/js/voice-assistant.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/pwa.js"></script>
+</body>
+</html>

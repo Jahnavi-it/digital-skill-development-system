@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses · Digital Skill Development System</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12142B">
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="brand">🪜 Digital Skill Development System</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html" class="active">Courses</a>
+    <a href="dashboard.html" class="btn btn-outline btn-sm" id="dash-link" style="display:none;">Dashboard</a>
+    <a href="login.html" class="btn btn-outline btn-sm" id="login-link">Log in</a>
+    <a href="register.html" class="btn btn-primary btn-sm" id="register-link">Get started</a>
+  </nav>
+</header>
+
+<section class="section container">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Course catalog</div>
+      <h2>Find your next skill</h2>
+    </div>
+    <input type="text" id="search-input" placeholder="Search courses…" style="padding:10px 16px; border-radius:999px; border:1px solid rgba(255,255,255,0.15); background:var(--surface); color:var(--text); width:240px;">
+  </div>
+
+  <div style="display:flex; gap:10px; margin-bottom:26px; flex-wrap:wrap;" id="category-filters"></div>
+
+  <div class="grid grid-3" id="courses-grid">
+    <div class="empty-state">Loading courses…</div>
+  </div>
+</section>
+
+<footer>© 2026 Digital Skill Development System — CSP Major Project</footer>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/courses.js"></script>
+<script src="assets/js/voice-assistant.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/pwa.js"></script>
+</body>
+</html>

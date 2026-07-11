@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard · Digital Skill Development System</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12142B">
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">🪜 DSDS</div>
+    <nav>
+      <a href="dashboard.html" class="active">📊 Dashboard</a>
+      <a href="courses.html">📚 Courses</a>
+      <a href="leaderboard.html">🏆 Leaderboard</a>
+      <a href="resume-builder.html">📄 Resume Builder</a>
+      <a href="mock-interview.html">🎤 Mock Interview</a>
+      <a href="compiler.html">💻 Coding Compiler</a>
+      <a href="internships.html">🧭 Internships</a>
+      <a href="forum.html">💬 Forum</a>
+      <a href="chat.html">📨 Chat</a>
+      <a href="notifications.html">🔔 Notifications</a>
+      <a href="live-classes.html">🎥 Live Classes</a>
+    </nav>
+    <a href="#" class="btn btn-outline btn-block logout" id="logout-btn">Log out</a>
+  </aside>
+
+  <main class="main">
+    <div class="topline">
+      <div>
+        <h2 id="welcome-heading">Welcome back</h2>
+        <p class="sub" style="color:var(--muted); margin:0;">Here's where you stand on the skill ladder.</p>
+      </div>
+      <a href="courses.html" class="btn btn-primary">+ Browse courses</a>
+    </div>
+
+    <div class="stat-row" id="stat-row">
+      <div class="stat-card"><div class="num">—</div><div class="label">Courses enrolled</div></div>
+      <div class="stat-card"><div class="num">—</div><div class="label">Completed</div></div>
+      <div class="stat-card"><div class="num">—</div><div class="label">Points</div></div>
+      <div class="stat-card"><div class="num">—</div><div class="label">Level</div></div>
+    </div>
+
+    <div class="section-head">
+      <div><div class="eyebrow">In progress</div><h3 style="margin:0;">Continue learning</h3></div>
+    </div>
+    <div class="grid grid-3" id="active-courses">
+      <div class="empty-state">Loading…</div>
+    </div>
+
+    <div class="section-head" style="margin-top:36px;">
+      <div><div class="eyebrow">Achievements</div><h3 style="margin:0;">Your badges</h3></div>
+    </div>
+    <div class="grid grid-4" id="badges-grid">
+      <div class="empty-state">Loading…</div>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/dashboard.js"></script>
+<script src="assets/js/voice-assistant.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/pwa.js"></script>
+</body>
+</html>

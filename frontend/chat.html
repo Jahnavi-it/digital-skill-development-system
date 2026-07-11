@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat · Digital Skill Development System</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12142B">
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">🪜 DSDS</div>
+    <nav>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="courses.html">📚 Courses</a>
+      <a href="leaderboard.html">🏆 Leaderboard</a>
+      <a href="resume-builder.html">📄 Resume Builder</a>
+      <a href="mock-interview.html">🎤 Mock Interview</a>
+      <a href="compiler.html">💻 Coding Compiler</a>
+      <a href="internships.html">🧭 Internships</a>
+      <a href="forum.html">💬 Forum</a>
+      <a href="chat.html" class="active">📨 Chat</a>
+      <a href="notifications.html">🔔 Notifications</a>
+      <a href="live-classes.html">🎥 Live Classes</a>
+    </nav>
+    <a href="#" class="btn btn-outline btn-block logout" id="logout-btn">Log out</a>
+  </aside>
+
+  <main class="main">
+    <div class="topline">
+      <div>
+        <h2>Chat</h2>
+        <p class="sub" style="color:var(--muted); margin:0;" id="conn-status">Connecting…</p>
+      </div>
+    </div>
+
+    <div class="chat-layout">
+      <div class="chat-contacts" id="chat-contacts"><div class="empty-state">Loading…</div></div>
+      <div class="chat-main">
+        <div class="chat-header" id="chat-header">Select someone to message</div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="typing-indicator" id="typing-indicator"></div>
+        <div class="chat-input-row">
+          <input type="text" id="chat-input" placeholder="Type a message…" disabled>
+          <button class="btn btn-primary" id="send-btn" disabled>Send</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/chat.js"></script>
+<script src="assets/js/voice-assistant.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/pwa.js"></script>
+</body>
+</html>

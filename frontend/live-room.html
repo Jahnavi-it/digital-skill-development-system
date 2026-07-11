@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Class Room · Digital Skill Development System</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12142B">
+</head>
+<body>
+
+<div class="call-shell">
+  <div class="call-topbar">
+    <div>
+      <strong id="room-title">Live Class</strong>
+      <div class="lc-meta" id="conn-status" style="margin-top:2px;">Connecting…</div>
+    </div>
+    <a href="live-classes.html" class="btn btn-outline btn-sm">← Back to list</a>
+  </div>
+
+  <div class="call-body">
+    <div class="video-grid" id="video-grid">
+      <div class="video-tile">
+        <video id="local-video" autoplay playsinline muted></video>
+        <span class="v-label">You</span>
+      </div>
+    </div>
+
+    <aside class="call-sidebar">
+      <div style="padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.06); font-weight:600;">In-call chat</div>
+      <div class="call-chat-messages" id="call-chat-messages"></div>
+      <div class="chat-input-row">
+        <input type="text" id="call-chat-input" placeholder="Message everyone…">
+        <button class="btn btn-primary btn-sm" id="call-chat-send">Send</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="call-controls">
+    <button class="call-btn" id="toggle-mic" title="Mute/unmute">🎤</button>
+    <button class="call-btn" id="toggle-cam" title="Camera on/off">📷</button>
+    <button class="call-btn leave" id="leave-call">✖ Leave</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/live-room.js"></script>
+<script src="assets/js/voice-assistant.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/pwa.js"></script>
+</body>
+</html>

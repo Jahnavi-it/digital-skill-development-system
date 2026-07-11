@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard · Digital Skill Development System</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .lb-row { display: flex; align-items: center; gap: 16px; padding: 14px 18px; background: var(--surface); border-radius: 12px; margin-bottom: 10px; }
+  .lb-rank { font-family: 'JetBrains Mono'; color: var(--accent); width: 30px; font-weight: 600; }
+  .lb-row.top1 { border: 1px solid var(--accent); }
+  .lb-name { flex: 1; font-weight: 600; }
+  .lb-points { font-family: 'JetBrains Mono'; color: var(--progress); }
+</style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12142B">
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="brand">🪜 Digital Skill Development System</a>
+  <nav>
+    <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+  </nav>
+</header>
+
+<section class="section container" style="max-width:640px;">
+  <div class="eyebrow">Top learners</div>
+  <h1>Leaderboard</h1>
+  <div id="leaderboard-list"><div class="empty-state">Loading…</div></div>
+</section>
+
+<script src="assets/js/api.js"></script>
+<script>
+  async function loadLeaderboard() {
+    const list = document.getElementById("leaderboard-list");
+    try {
+      const data = await apiRequest("/dashboard/leaderboard");
+      if (data.leaderboard.length === 0) {
+        list.innerHTML = `<div class="empty-state">No learners have earned points yet.</div>`;
+        return;
+      }
+      list.innerHTML = data.leaderboard.map(u => `
+        <div class="lb-row ${u.rank === 1 ? "top1" : ""}">
+          <span class="lb-rank">#${u.rank}</span>
+          <span class="lb-name">${u.name}</span>
+          <span>Lv ${u.level}</span>
+          <span class="lb-points">${u.points} pts</span>
+        </div>
+      `).join("");
+    } catch (err) {
+      list.innerHTML = `<div class="empty-state">${err.message}</div>`;
+    }
+  }
+  loadLeaderboard();
+</script>
+<script src="assets/js/voice-assistant.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/pwa.js"></script>
+</body>
+</html>

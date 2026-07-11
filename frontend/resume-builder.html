@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Builder · Digital Skill Development System</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12142B">
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">🪜 DSDS</div>
+    <nav>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="courses.html">📚 Courses</a>
+      <a href="leaderboard.html">🏆 Leaderboard</a>
+      <a href="resume-builder.html" class="active">📄 Resume Builder</a>
+      <a href="mock-interview.html">🎤 Mock Interview</a>
+      <a href="compiler.html">💻 Coding Compiler</a>
+      <a href="internships.html">🧭 Internships</a>
+      <a href="forum.html">💬 Forum</a>
+      <a href="chat.html">📨 Chat</a>
+      <a href="notifications.html">🔔 Notifications</a>
+      <a href="live-classes.html">🎥 Live Classes</a>
+    </nav>
+    <a href="#" class="btn btn-outline btn-block logout" id="logout-btn">Log out</a>
+  </aside>
+
+  <main class="main">
+    <div class="topline">
+      <div>
+        <h2>Resume Builder</h2>
+        <p class="sub" style="color:var(--muted); margin:0;">Fill in your details — the preview updates live. Use "Download PDF" to print/save.</p>
+      </div>
+      <div style="display:flex; gap:10px;">
+        <button class="btn btn-outline" id="save-btn">Save</button>
+        <button class="btn btn-primary" id="download-btn">⬇ Download PDF</button>
+      </div>
+    </div>
+    <p class="form-msg" id="form-msg"></p>
+
+    <div class="resume-layout">
+      <div id="form-col">
+
+        <div class="form-section">
+          <h3>Basic details</h3>
+          <div class="field"><label>Full name</label><input id="f-full_name" type="text"></div>
+          <div class="field"><label>Professional title</label><input id="f-title" type="text" placeholder="e.g. Web Developer"></div>
+          <div class="field"><label>Email</label><input id="f-email" type="email"></div>
+          <div class="field"><label>Phone</label><input id="f-phone" type="text"></div>
+          <div class="field"><label>Location</label><input id="f-location" type="text" placeholder="City, State"></div>
+          <div class="field"><label>Summary</label><textarea id="f-summary" rows="3" placeholder="2-3 lines about you"></textarea></div>
+        </div>
+
+        <div class="form-section">
+          <h3>Links</h3>
+          <div class="field"><label>GitHub</label><input id="f-github" type="text"></div>
+          <div class="field"><label>LinkedIn</label><input id="f-linkedin" type="text"></div>
+          <div class="field"><label>Portfolio</label><input id="f-portfolio" type="text"></div>
+        </div>
+
+        <div class="form-section">
+          <h3>Skills</h3>
+          <div class="chip-input" id="skills-chip-input">
+            <input type="text" id="skill-entry" placeholder="Type a skill and press Enter">
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Education</h3>
+          <div id="education-rows"></div>
+          <button class="btn btn-outline btn-sm" id="add-education">+ Add education</button>
+        </div>
+
+        <div class="form-section">
+          <h3>Projects</h3>
+          <div id="projects-rows"></div>
+          <button class="btn btn-outline btn-sm" id="add-project">+ Add project</button>
+        </div>
+
+        <div class="form-section">
+          <h3>Experience</h3>
+          <div id="experience-rows"></div>
+          <button class="btn btn-outline btn-sm" id="add-experience">+ Add experience</button>
+        </div>
+
+        <div class="form-section">
+          <h3>Certifications</h3>
+          <div class="chip-input" id="certs-chip-input">
+            <input type="text" id="cert-entry" placeholder="Type a certification and press Enter">
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-preview" id="resume-preview">
+        <div class="empty-state">Fill the form to see your resume preview.</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/resume-builder.js"></script>
+<script src="assets/js/voice-assistant.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/pwa.js"></script>
+</body>
+</html>

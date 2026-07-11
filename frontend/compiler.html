@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coding Compiler · Digital Skill Development System</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12142B">
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">🪜 DSDS</div>
+    <nav>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="courses.html">📚 Courses</a>
+      <a href="leaderboard.html">🏆 Leaderboard</a>
+      <a href="resume-builder.html">📄 Resume Builder</a>
+      <a href="mock-interview.html">🎤 Mock Interview</a>
+      <a href="compiler.html" class="active">💻 Coding Compiler</a>
+      <a href="internships.html">🧭 Internships</a>
+      <a href="forum.html">💬 Forum</a>
+      <a href="chat.html">📨 Chat</a>
+      <a href="notifications.html">🔔 Notifications</a>
+      <a href="live-classes.html">🎥 Live Classes</a>
+    </nav>
+    <a href="#" class="btn btn-outline btn-block logout" id="logout-btn">Log out</a>
+  </aside>
+
+  <main class="main">
+    <div class="topline">
+      <div>
+        <h2>Coding Compiler</h2>
+        <p class="sub" style="color:var(--muted); margin:0;">Practice code right in the browser. 5-second execution limit per run.</p>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <select id="language-select" class="field" style="width:auto; padding:10px 14px; border-radius:10px; background:var(--surface); color:var(--text); border:1px solid rgba(255,255,255,0.12);">
+          <option value="python">Python 3</option>
+          <option value="javascript">JavaScript (Node)</option>
+        </select>
+        <button class="btn btn-primary" id="run-btn">▶ Run</button>
+      </div>
+    </div>
+
+    <div class="compiler-layout">
+      <div class="code-pane">
+        <div class="pane-head"><span>Code</span><span class="mono" style="color:var(--muted); font-size:0.78rem;">Ctrl+Enter to run</span></div>
+        <textarea id="code-editor" spellcheck="false"># Write your Python code here
+print("Hello, DSDS!")</textarea>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="io-pane" style="flex:0 0 120px;">
+          <div class="pane-head"><span>Input (stdin)</span></div>
+          <textarea id="stdin-input" placeholder="Optional input for your program"></textarea>
+        </div>
+        <div class="io-pane" style="flex:1;">
+          <div class="pane-head"><span>Output</span><span class="status-pill" id="status-pill" style="display:none;"></span></div>
+          <div class="output-box" id="output-box">Run your code to see output here.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/compiler.js"></script>
+<script src="assets/js/voice-assistant.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/pwa.js"></script>
+</body>
+</html>

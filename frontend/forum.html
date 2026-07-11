@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forum · Digital Skill Development System</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12142B">
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">🪜 DSDS</div>
+    <nav>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="courses.html">📚 Courses</a>
+      <a href="leaderboard.html">🏆 Leaderboard</a>
+      <a href="resume-builder.html">📄 Resume Builder</a>
+      <a href="mock-interview.html">🎤 Mock Interview</a>
+      <a href="compiler.html">💻 Coding Compiler</a>
+      <a href="internships.html">🧭 Internships</a>
+      <a href="forum.html" class="active">💬 Forum</a>
+      <a href="chat.html">📨 Chat</a>
+      <a href="notifications.html">🔔 Notifications</a>
+      <a href="live-classes.html">🎥 Live Classes</a>
+    </nav>
+    <a href="#" class="btn btn-outline btn-block logout" id="logout-btn">Log out</a>
+  </aside>
+
+  <main class="main">
+    <div id="list-view">
+      <div class="topline">
+        <div>
+          <h2>Discussion Forum</h2>
+          <p class="sub" style="color:var(--muted); margin:0;">Ask questions, share what you've learned, help others.</p>
+        </div>
+        <button class="btn btn-primary" id="new-thread-btn">+ New thread</button>
+      </div>
+
+      <div class="forum-filters" id="filters"></div>
+      <div id="threads-list"><div class="empty-state">Loading…</div></div>
+    </div>
+
+    <div id="new-thread-view" style="display:none; max-width:640px;">
+      <button class="btn btn-outline btn-sm" id="cancel-new-thread" style="margin-bottom:18px;">← Back</button>
+      <div class="form-section">
+        <h3>Start a new thread</h3>
+        <div class="field"><label>Title</label><input id="nt-title" type="text"></div>
+        <div class="field">
+          <label>Category</label>
+          <select id="nt-category" style="width:100%; padding:11px 14px; border-radius:10px; background:var(--bg); color:var(--text); border:1px solid rgba(255,255,255,0.12);"></select>
+        </div>
+        <div class="field"><label>Your question / post</label><textarea id="nt-body" rows="5"></textarea></div>
+        <p class="form-msg" id="nt-msg"></p>
+        <button class="btn btn-primary btn-block" id="post-thread-btn">Post thread</button>
+      </div>
+    </div>
+
+    <div id="detail-view" style="display:none; max-width:720px;">
+      <button class="btn btn-outline btn-sm" id="back-to-list" style="margin-bottom:18px;">← Back to threads</button>
+      <div id="thread-detail-content"></div>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/forum.js"></script>
+<script src="assets/js/voice-assistant.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/pwa.js"></script>
+</body>
+</html>

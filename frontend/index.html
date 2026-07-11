@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Skill Development System</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12142B">
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="brand">🪜 Digital Skill Development System</a>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="login.html" class="btn btn-outline btn-sm">Log in</a>
+    <a href="register.html" class="btn btn-primary btn-sm">Get started</a>
+  </nav>
+</header>
+
+<section class="hero container">
+  <div>
+    <div class="eyebrow">Learn · Build · Get Hired</div>
+    <h1>Climb your way to a career, one skill at a time.</h1>
+    <p class="lead">Web Development, Programming, Digital Marketing, Data Science and Basic Computer Skills — structured courses, real progress tracking, and career tools in one platform.</p>
+    <div class="actions">
+      <a href="register.html" class="btn btn-primary">Start learning free</a>
+      <a href="courses.html" class="btn btn-outline">Browse courses</a>
+    </div>
+  </div>
+
+  <div class="ladder-wrap">
+    <div class="ladder">
+      <div class="rung filled"><span class="rung-num">05</span><span class="rung-label">Job Ready</span><span class="rung-badge">🏆</span></div>
+      <div class="rung filled"><span class="rung-num">04</span><span class="rung-label">Portfolio Built</span><span class="rung-badge">⭐</span></div>
+      <div class="rung filled"><span class="rung-num">03</span><span class="rung-label">Projects Practiced</span><span class="rung-badge">🔥</span></div>
+      <div class="rung"><span class="rung-num">02</span><span class="rung-label">Core Concepts</span></div>
+      <div class="rung"><span class="rung-num">01</span><span class="rung-label">Getting Started</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Skill Categories</div>
+      <h2>Pick a track and start climbing</h2>
+    </div>
+  </div>
+  <div class="grid grid-4" id="category-grid">
+    <!-- filled by JS -->
+  </div>
+</section>
+
+<section class="section container">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Why this platform</div>
+      <h2>Everything a learner needs</h2>
+    </div>
+  </div>
+  <div class="grid grid-3">
+    <div class="card"><div class="icon-badge">📊</div><h3>Progress Dashboard</h3><p>Track lessons completed, points earned and levels climbed in real time.</p></div>
+    <div class="card"><div class="icon-badge">📝</div><h3>Assessments</h3><p>Test your understanding after every course with scored quizzes.</p></div>
+    <div class="card"><div class="icon-badge">🎖️</div><h3>Badges & Points</h3><p>Earn badges and level up as you complete lessons and courses.</p></div>
+    <div class="card"><div class="icon-badge">📄</div><h3>Resume Builder</h3><p>Turn your completed skills into a ready-to-send resume.</p></div>
+    <div class="card"><div class="icon-badge">💬</div><h3>Community Forum</h3><p>Ask questions and help other learners in your track.</p></div>
+    <div class="card"><div class="icon-badge">🎥</div><h3>Live Mentor Classes</h3><p>Join live sessions and get feedback from mentors.</p></div>
+  </div>
+</section>
+
+<footer>© 2026 Digital Skill Development System — CSP Major Project</footer>
+
+<script src="assets/js/api.js"></script>
+<script>
+  async function loadCategories() {
+    const grid = document.getElementById("category-grid");
+    try {
+      const data = await apiRequest("/courses/categories");
+      grid.innerHTML = data.categories.map(c => `
+        <a href="courses.html?category_id=${c.id}" class="card">
+          <div class="icon-badge">📚</div>
+          <h3>${c.name}</h3>
+          <p>${c.description || ""}</p>
+        </a>
+      `).join("");
+    } catch (err) {
+      grid.innerHTML = `<div class="empty-state">Backend not reachable yet — start the Flask server to load categories.</div>`;
+    }
+  }
+  loadCategories();
+</script>
+<script src="assets/js/voice-assistant.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/pwa.js"></script>
+</body>
+</html>

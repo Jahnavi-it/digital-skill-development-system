@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mock Interview · Digital Skill Development System</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12142B">
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">🪜 DSDS</div>
+    <nav>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="courses.html">📚 Courses</a>
+      <a href="leaderboard.html">🏆 Leaderboard</a>
+      <a href="resume-builder.html">📄 Resume Builder</a>
+      <a href="mock-interview.html" class="active">🎤 Mock Interview</a>
+      <a href="compiler.html">💻 Coding Compiler</a>
+      <a href="internships.html">🧭 Internships</a>
+      <a href="forum.html">💬 Forum</a>
+      <a href="chat.html">📨 Chat</a>
+      <a href="notifications.html">🔔 Notifications</a>
+      <a href="live-classes.html">🎥 Live Classes</a>
+    </nav>
+    <a href="#" class="btn btn-outline btn-block logout" id="logout-btn">Log out</a>
+  </aside>
+
+  <main class="main">
+    <div class="topline">
+      <div>
+        <h2>Mock Interview</h2>
+        <p class="sub" style="color:var(--muted); margin:0;">Pick a role, answer the questions, and get instant rule-based feedback.</p>
+      </div>
+    </div>
+
+    <div id="role-select-view">
+      <div class="section-head"><div><div class="eyebrow">Step 1</div><h3 style="margin:0;">Choose a role</h3></div></div>
+      <div class="grid grid-4" id="roles-grid"><div class="empty-state">Loading roles…</div></div>
+    </div>
+
+    <div id="questions-view" style="display:none;">
+      <div class="section-head"><div><div class="eyebrow" id="role-label"></div><h3 style="margin:0;">Answer each question</h3></div></div>
+      <div id="questions-list"></div>
+      <button class="btn btn-primary" id="submit-interview-btn">Submit answers</button>
+    </div>
+
+    <div id="results-view" style="display:none;">
+      <div class="card" style="text-align:center; max-width:320px; margin:0 auto 24px;">
+        <div class="score-ring" id="score-ring"></div>
+        <p id="feedback-text" style="color:var(--muted);"></p>
+      </div>
+      <div id="results-breakdown"></div>
+      <button class="btn btn-outline" id="try-again-btn">Try another role</button>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/mock-interview.js"></script>
+<script src="assets/js/voice-assistant.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/pwa.js"></script>
+</body>
+</html>
