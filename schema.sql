@@ -1,3 +1,9 @@
+-- ============================================================
+-- Digital Skill Development System — Full Database Schema
+-- (Railway version — no CREATE DATABASE/USE, imported directly
+-- into the "railway" database that Railway MySQL provides)
+-- ============================================================
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(120) NOT NULL,
@@ -217,6 +223,8 @@ CREATE TABLE live_classes (
     FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
     FOREIGN KEY (mentor_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+-- ---------- SEED DATA ----------
 
 INSERT INTO categories (name, description, icon) VALUES
 ('Web Development', 'HTML, CSS, JavaScript and modern frameworks', 'code'),
