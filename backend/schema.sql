@@ -1,3 +1,14 @@
+-- ============================================================
+-- Digital Skill Development System — Full Database Schema
+-- Covers ALL phases (core LMS + advanced features) so the DB
+-- never needs to be redesigned as new modules are added.
+-- ============================================================
+
+CREATE DATABASE IF NOT EXISTS dsds_db;
+USE dsds_db;
+
+-- ---------- PHASE 1: CORE ----------
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(120) NOT NULL,
@@ -67,6 +78,8 @@ CREATE TABLE lesson_progress (
     FOREIGN KEY (lesson_id) REFERENCES lessons(id) ON DELETE CASCADE
 );
 
+-- ---------- PHASE 2: ASSESSMENTS + GAMIFICATION ----------
+
 CREATE TABLE assessments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     course_id INT NOT NULL,
@@ -126,6 +139,8 @@ CREATE TABLE points_log (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+-- ---------- PHASE 3: CAREER TOOLS ----------
+
 CREATE TABLE resumes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL UNIQUE,
@@ -167,6 +182,8 @@ CREATE TABLE internships (
     posted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- ---------- PHASE 4: COMMUNITY ----------
+
 CREATE TABLE forum_threads (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -206,6 +223,8 @@ CREATE TABLE chat_messages (
     FOREIGN KEY (receiver_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+-- ---------- PHASE 5: LIVE LEARNING ----------
+
 CREATE TABLE live_classes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     course_id INT NOT NULL,
@@ -217,6 +236,8 @@ CREATE TABLE live_classes (
     FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
     FOREIGN KEY (mentor_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+-- ---------- SEED DATA ----------
 
 INSERT INTO categories (name, description, icon) VALUES
 ('Web Development', 'HTML, CSS, JavaScript and modern frameworks', 'code'),
